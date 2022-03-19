@@ -90,7 +90,7 @@ function download(source) {
 		const _url = url.parse(source);
 		const options = { host: _url.host, port: _url.port, path: _url.path, headers: { 'User-Agent': 'NodeJS' } };
 		let content = '';
-		https.get(options, function (response) {
+		https.request(options, function (response) {
 			response.on('data', function (data) {
 				content += data.toString();
 			}).on('end', function () {
